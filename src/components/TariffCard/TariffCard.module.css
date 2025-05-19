@@ -1,0 +1,64 @@
+.card {
+  position: relative;               
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  margin: 0.5rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.featured {
+  transform: scale(1.05);       
+  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  padding: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.price {
+  margin: 0.5rem 0 0;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.currency,
+.unit {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+}
+
+.speed {
+  margin: 0;
+  padding: 0.75rem;
+  background: #fff;
+  font-size: 1rem;
+  color: #333;
+}
+
+.traffic {
+  margin: 0;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  font-size: 0.875rem;
+  color: #555;
+}
