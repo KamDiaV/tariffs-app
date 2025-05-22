@@ -1,23 +1,30 @@
 import React from 'react';
 import styles from './TariffCard.module.css';
 
-export default function TariffCard({ name, price, speed, color, isFeatured }) {
-  const cardClass = isFeatured
-    ? `${styles.card} ${styles.featured}`
+export default function TariffCard({
+  name,
+  price,
+  speed,
+  headerClass,
+  isRecommended,
+  isSelected,
+  onSelect
+}) {
+  const cardClass = isSelected
+    ? `${styles.card} ${styles.selected}`
     : styles.card;
 
   return (
-    <div className={cardClass}>
-      {isFeatured && (
-        <span className={styles.badge}>
-          🔥
-        </span>
-      )}
+    <div
+      className={cardClass}
+      onClick={onSelect}
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onSelect()}
+    >
+      {isRecommended && <span className={styles.badge}>🔥</span>}
 
-      <div
-        className={styles.header}
-        style={{ backgroundColor: color, color: '#fff' }}
-      >
+      <div className={`${styles.header} ${styles[headerClass]}`}>
         <h3 className={styles.title}>{name}</h3>
         <p className={styles.price}>
           {price}
@@ -27,7 +34,6 @@ export default function TariffCard({ name, price, speed, color, isFeatured }) {
       </div>
 
       <p className={styles.speed}>до {speed} Мбит/сек</p>
-
       <p className={styles.traffic}>Объем включенного трафика не ограничен</p>
     </div>
   );
